@@ -3,6 +3,14 @@ import React, { Component } from 'react'
 import './Github.css'
 
 class Github extends Component {
+  state = {
+    username: '',
+  }
+
+  handleChange = ev => {
+    this.setState({ username: ev.target.value })
+  }
+
   render() {
     return (
       <div className="Github">
@@ -19,6 +27,7 @@ class Github extends Component {
               autoFocus
               type="text"
               value={this.state.username}
+              onChange={this.handleChange}
             />
           </div>
           <div>
