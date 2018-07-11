@@ -2,36 +2,45 @@ import React, { Component } from 'react'
 import Github from './Pokemon';
 
 class PokemonUser extends Component {
-  constructor(props) {
+  constructor(props){
     super(props)
 
-    this.state = {
-      user: {}
+      this.state={
+          pokemon: {},
+      }
+
+      this.fetchPokemonData()
+  } 
+
+  
+    fetchPokemonData = () => {
+    const {pokemon} = this.props.match.params
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}/`)
+     .then(response => response.json())
+     .then(pokemon => this.setState({pokemon}))
+}
+
+    
+componentDidUpdate(prevProps){
+    if(prevProps.match.params.pokemon !== this.props.match.params.pokemon){
+        this.fetchPokemonData()
     }
+}
 
-    this.fetchUserData()
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.match.params.username !== this.props.match.params.username) {
-      this.fetchUserData()
-    }
-  }
-
-  fetchUserData = () => {
-    const { username } = this.props.match.params
-    fetch(`https://api.github.com/users/${username}`)
-      .then(response => response.json())
-      .then(user => this.setState({ user }))
-  }
 
   render() {
     return (
       <div className="PokemonUser">
-        <img
-          src={ this.state.user.avatar_url }
-          alt={this.state.user.login}
-        />
+       <h2>{this.state.pokemon.name}
+       </h2>
+       {
+           this.state.pokemon.sprites && (
+               <img
+                src={this.state.pokemon.sprites.front_default}
+                alt={this.state.pokemon.name}
+                />
+       )
+    }
       </div>
     )
   }

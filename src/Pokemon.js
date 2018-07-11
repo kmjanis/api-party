@@ -21,26 +21,26 @@ class Pokemon extends Component {
     render() {
       return (
         <div className="Pokemon">
-  
+            <h1>Pokemon</h1>
           <form onSubmit={this.handleSubmit}>
             <div>
               <input
                 required
                 autoFocus
                 type="text"
-                value={this.state.username}
+                value={this.state.pokemon}
                 onChange={this.handleChange}
               />
             </div>
             <div>
               <button type="submit">
-                Look up Pokemon
+                Look up a Pokemon
               </button>
             </div>
           </form>
   
           <Route
-            path="/pokemon/:username"
+            path="/pokemon/:pokemon"
             component={PokemonUser}
           />
         </div>
