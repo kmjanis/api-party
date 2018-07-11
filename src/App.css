@@ -2,18 +2,19 @@
 
 .App {
   text-align: center;
-  font-family: "Gentium Book Basic", serif;
+  font-family:'Gaegu', cursive;
+  background-color: lightgrey
 }
 
 header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+  background-color: rgb(46, 9, 134);
+  height: 175px;
+  padding: 25px;
   color: white;
 }
 
 h1 {
-  font: 60px/75px "Alfa Slab One", cursive, sans-serif;
+  font: 60px/75px 'Knewave', cursive, sans-serif;
   text-transform: uppercase;
 }
 
@@ -37,11 +38,11 @@ h3 {
 }
 
 .navLinks a.active {
-  color: #F79824;
+  color: rgb(247, 50, 36);
 }
 
 .navLinks a.active:hover {
-  color: #FDCA40;
+  color: rgb(253, 108, 64);
 }
 
 .navLinks a:hover {
